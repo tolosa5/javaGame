@@ -4,6 +4,14 @@ import static utils.Constants.PlayerConstants.PlayerAnimations.*;
 
 public class Constants
 {
+    public static class Directions
+    {
+        public static final int LEFT = 1;
+        public static final int RIGHT = 2;
+        public static final int UP = 3;
+        public static final int DOWN = 4;
+    }
+
     public static class PlayerConstants
     {
         public enum PlayerAnimations
@@ -31,11 +39,13 @@ public class Constants
             }
 
             public int getIndex() { return index; }
+            public PlayerAnimations getAnimation() { return PlayerAnimations.values()[index]; }
         }
 
         public static int GetSpriteAmount(int player_action)
         {
-            return switch (player_action)
+            PlayerAnimations player_anim = PlayerAnimations.values()[player_action];
+            return switch (player_anim.getAnimation())
             {
                 case RUNNING, RUNNING_WEAPON -> 10;
                 case IDLE, IDLE_WEAPON -> 4;

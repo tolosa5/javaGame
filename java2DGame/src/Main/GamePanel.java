@@ -18,7 +18,7 @@ public class GamePanel extends JPanel
     private BufferedImage img, subImage;
     private BufferedImage[][] animations;
     private int animTick, animIndex, animSpeed = 18;
-    private int playerAction = IDLE;
+    private int playerAction = PlayerAnimations.IDLE.getIndex();
 
     public GamePanel()
     {
